@@ -1,0 +1,37 @@
+{
+  "name": "app16",
+  "version": "1.0.0",
+  "description": "paintings projec using Mongoose",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha",
+    "dev": "nodemon --inspect app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Yonatanembiza/RESTful-API-fPaintings-Project.git"
+  },
+  "keywords": [
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "Mongoose",
+    "MEAN"
+  ],
+  "author": "Yonatan Tadesse",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Yonatanembiza/RESTful-API-fPaintings-Project/issues"
+  },
+  "homepage": "https://github.com/Yonatanembiza/RESTful-API-fPaintings-Project#readme",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mongodb": "^4.16.0",
+    "mongoose": "^6.7.1"
+  },
+  "devDependencies": {
+    "mocha": "^10.7.0"
+  }
+}
