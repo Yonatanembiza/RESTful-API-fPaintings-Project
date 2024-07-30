@@ -1,4 +1,5 @@
 require("dotenv").config();
+require("./paintings-model")
 const mongoose= require("mongoose");
 
 mongoose.connect(process.env.DATABASE_CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true});
