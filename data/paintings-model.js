@@ -1,3 +1,4 @@
+require("dotenv").config();
 const mongoose= require("mongoose");
 const { object } = require("webidl-conversions");
  
@@ -5,18 +6,26 @@ const firstDisplayedSchema= mongoose.Schema({
     name: {
         type: String,
         required: true
+    },
+    country: {
+        type: String,
+        required: false
     }
 });
 const currentDisplayedSchema= mongoose.Schema({
     name:{
         type: String,
         required: true
+    },
+    country: {
+        type: String,
+        required: false
     }
 })
 const meseumSchema= mongoose.Schema({
     firstDisplayed: firstDisplayedSchema,
     secondDisplayed: currentDisplayedSchema
-})
+}, {_id: false})
 const paintingSchema= mongoose.Schema({
     name: {
         type: String,
@@ -28,10 +37,10 @@ const paintingSchema= mongoose.Schema({
     },
     year: {
         type: Number,
-        required: false,
+        required: false,    
     },
     museum: meseumSchema
-})
+});
 
-//  So here, after defining the schema and applying validating rules to the data we compile as follows 
-mongoose.model("Painting", paintingSchema, "paintings")
+//  fter defining the schema and applying validating rules to the data we compile as follows 
+mongoose.model(process.env.PAINTING_MODEL, paintingSchema, "paintings")

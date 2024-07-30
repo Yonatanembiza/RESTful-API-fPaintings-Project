@@ -1,8 +1,11 @@
 require("dotenv").config();
-require("./paintings-model")
+require("./paintings-model");
 const mongoose= require("mongoose");
 
-mongoose.connect(process.env.DATABASE_CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect(process.env.DATABASE_CONNECTION_URL, {
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+});
 mongoose.connection.on("connected", function() {
     console.log("Mongoose connected to", process.env.DATABASE_NAME);
 });
@@ -28,6 +31,6 @@ process.on("SIGTERM", function(){
 process.once("SIGUSER2", function(){
     mongoose.connection.close(function(){
         console.log(process.env.SIGUSR2_MESSAGE);
-        process.kill(process.pid, "SIGUSR2");
+        process.kill(process.pid, "SIGUSER2");
     });
 });

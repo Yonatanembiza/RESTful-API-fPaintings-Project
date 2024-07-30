@@ -1,9 +1,8 @@
 require("dotenv").config();
-const path= require("path");
 require("./data/db");
+const routes= require("./routes/index");
+const path= require("path");
 const express= require("express");
-
-const routes= require("./routes");
 
 // creat app
 const app= express();
@@ -11,13 +10,13 @@ const app= express();
 // create middlewares
 app.use(express.json());
 
-// middleware for logging
-app.use(function (req, res, next){
-    console.log(req.method, req.url);
-});
+// // middleware for logging
+// app.use(function (req, res, next){
+//     console.log(req.method, req.url);
+// });
 
 // middle for the routes and defining the sub-route 
-// app.use("/api", routes);
+app.use("/api", routes);
 
 // create the server 
 const server= app.listen(process.env.PORT, function(){
