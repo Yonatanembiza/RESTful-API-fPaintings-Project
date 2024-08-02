@@ -16,7 +16,8 @@ app.use(express.json());
 // });
 
 // middle for the routes and defining the sub-route 
-app.use("/api", routes);
+// app.use("/api", routes);
+app.use("/api", routes)
 
 // create the server 
 const server= app.listen(process.env.PORT, function(){
